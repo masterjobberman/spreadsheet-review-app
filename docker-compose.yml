@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  spreadsheet-review-app:
+    build: .
+    container_name: spreadsheet-review-app
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - app-data:/app/data
+    labels:
+      - "com.unraid.container.icon=https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/285_R_Project_logo-512.png"
+      - "com.unraid.container.name=Spreadsheet Review App"
+      - "com.unraid.container.description=A web application for managing spreadsheet data and product reviews"
+
+volumes:
+  app-data:
+    driver: local
